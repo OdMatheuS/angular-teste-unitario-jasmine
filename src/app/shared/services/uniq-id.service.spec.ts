@@ -36,7 +36,7 @@ describe(UniqueIdService.name, () => {
   });
 
   it(`${UniqueIdService.prototype.generateUniqueIdWithPrefix.name}: should throw exception when called with empty or invalid value`, () => {
-    const invalidValues = [null, undefined, ""];
+    const invalidValues = [null, undefined, "", "2", "0"];
     invalidValues.forEach((invalidValue) => {
       expect(() => service.generateUniqueIdWithPrefix(invalidValue)).toThrow();
     });
