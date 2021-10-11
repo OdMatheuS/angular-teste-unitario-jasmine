@@ -34,4 +34,11 @@ describe(UniqueIdService.name, () => {
     service.generateUniqueIdWithPrefix("foobar");
     expect(service.getNumberOfGeneratedUniqueId()).toBe(2);
   });
+
+  it(`${UniqueIdService.prototype.generateUniqueIdWithPrefix.name}: should throw exception when called with empty or invalid value`, () => {
+    const invalidValues = [null, undefined, ""];
+    invalidValues.forEach((invalidValue) => {
+      expect(() => service.generateUniqueIdWithPrefix(invalidValue)).toThrow();
+    });
+  });
 });
