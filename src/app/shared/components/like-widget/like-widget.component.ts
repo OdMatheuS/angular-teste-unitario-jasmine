@@ -8,7 +8,15 @@ import { UniqueIdService } from "../../services/uniq-id.service";
   styleUrls: ["./like-widget.component.scss"],
 })
 export class LikeWidgetComponent implements OnInit {
+  /**
+   * metodo like dispara eventos via @Output
+   * p/ component pai
+   */
   @Output() public liked = new EventEmitter<void>();
+  /**
+   * atributo public @Input
+   * do component filho, (like-widget)
+   */
   @Input() public likes = 0;
   @Input() public id = null;
 
