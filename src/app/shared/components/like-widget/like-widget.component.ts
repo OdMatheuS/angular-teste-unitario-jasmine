@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { UniqueIdService } from "../../services/uniq-id.service";
 
 @Component({
   selector: "app-like-widget",
@@ -10,7 +12,20 @@ export class LikeWidgetComponent implements OnInit {
   @Input() public likes = 0;
   @Input() public id = null;
 
-  constructor() {}
+  public fonts = { faThumbsUp };
 
-  ngOnInit(): void {}
+  constructor(private uniqIdService: UniqueIdService) {}
+
+  public ngOnInit(): void {
+    if (!this.id) {
+      this.id = this.uniqIdService.generateUniqueIdWithPrefix("like-widget");
+    }
+  }
+
+  /**
+   * metodo like dispara evento via @Output
+   */
+  public like(): void {
+    this.liked.emit();
+  }
 }
