@@ -1,25 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { LikeWidgetComponent } from "./like-widget.component";
+import { LikeWidgetModule } from "./like-widget.module";
 
-import { LikeWidgetComponent } from './like-widget.component';
-
-describe('LikeWidgetComponent', () => {
-  let component: LikeWidgetComponent;
-  let fixture: ComponentFixture<LikeWidgetComponent>;
-
+describe(`${LikeWidgetComponent.name}`, () => {
+  let fixture: ComponentFixture<LikeWidgetComponent> = null
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LikeWidgetComponent ]
-    })
-    .compileComponents();
+      imports:[LikeWidgetModule]
+    }).compileComponents();
+    fixture = TestBed.createComponent(LikeWidgetComponent)
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LikeWidgetComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  it("should create component", () => {
+    const instanceWrapper = fixture.componentInstance
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(instanceWrapper).toBeTruthy();
   });
 });
