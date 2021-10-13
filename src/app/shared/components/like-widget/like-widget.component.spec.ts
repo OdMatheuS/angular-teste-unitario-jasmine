@@ -16,4 +16,19 @@ describe(`${LikeWidgetComponent.name}`, () => {
 
     expect(instanceWrapper).toBeTruthy();
   });
+
+  it("Should auto generate ID when id input empty", () => {
+    const instanceWrapper = fixture.componentInstance
+    fixture.detectChanges()
+    expect(instanceWrapper.id).toBeTruthy();
+  });
+
+  it("Should NOT generate ID when id input is present", () => {
+    const instanceWrapper = fixture.componentInstance
+    const randomId = 'foo'
+    instanceWrapper.id = randomId
+    fixture.detectChanges()
+    expect(instanceWrapper.id).toBe(randomId);
+  });
+
 });
