@@ -19,19 +19,19 @@ describe(`${LikeWidgetComponent.name}`, () => {
     expect(instanceWrapper).toBeTruthy();
   });
 
-  it("Should auto generate ID when id input empty", () => {
+  it("Should auto-generate ID during ngOnInit when (@Input id) is not assigned", () => {
     fixture.detectChanges()
     expect(instanceWrapper.id).toBeTruthy();
   });
 
-  it("Should NOT generate ID when id input is present", () => {
+  it("Should NOT auto-generate ID during ngOnInit when (@Input id) is assigned", () => {
     const randomId = 'foo'
     instanceWrapper.id = randomId
     fixture.detectChanges()
     expect(instanceWrapper.id).toBe(randomId);
   });
 
-  it(`${LikeWidgetComponent.prototype.like.name}:should trigger emission when called`, () => {
+  it(`${LikeWidgetComponent.prototype.like.name}:should trigger (@Output liked) when called`, () => {
     spyOn(instanceWrapper.liked,"emit")
     fixture.detectChanges()
     instanceWrapper.like()
