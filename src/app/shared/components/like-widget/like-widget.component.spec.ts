@@ -35,7 +35,7 @@ describe(`${LikeWidgetComponent.name}`, () => {
     spyOn(instanceWrapper.liked,"emit")
     fixture.detectChanges()
     instanceWrapper.like()
-    expect(instanceWrapper.liked.emit()).toHaveBeenCalled()
+    expect(instanceWrapper.liked.emit).toHaveBeenCalled()
   })
 
 });
